@@ -204,7 +204,7 @@ export default class IntroScene {
                 this._loadNextScene(FirstScene);
               },
             });
-          }, 2000);
+          }, 1000);
         });
       }
     }
