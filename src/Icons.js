@@ -40,17 +40,14 @@ export default class Icons extends Group {
 
   _createIcons() {
     const geometry = new PlaneGeometry(0.5, 0.5);
-    const count = 20;
+    const count = 60;
 
     for (let i = 0; i < count; i++) {
       const texture = this.textures[Math.floor(Math.random() * this.textures.length)];
 
       const uniforms = {
-        u_time: this.uniforms.u_time,
-        u_mouse: this.uniforms.u_mouse,
-        u_globalBrightness: this.uniforms.u_globalBrightness,
+        u_time: this.uniforms.u_time,       
         u_size: this.uniforms.u_size,
-        u_alpha: { value: 1.0 },
         u_texture: { value: texture },
       };
 

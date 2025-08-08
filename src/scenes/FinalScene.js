@@ -153,6 +153,7 @@ export default class FinalScene {
       "Vivi is me.",
       "And this was the story because…",
       "…I didn’t have time to make a better one.",
+      "That's it.",
     ];
 
     this._textMeshes = finalLinesBlock.map((line, i) => {

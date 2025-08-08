@@ -1,6 +1,6 @@
 import * as THREE from "three";
 
-export function createText(message, position, width, height, color, scale = 1, font = "bold 80px 'Great Vibes', cursive") {
+export function createText(message, position, width, height, color, scale = 1, font = "bold 60px cursive") {
   const canvas = document.createElement("canvas");
   canvas.width = width;
   canvas.height = height;
