@@ -1,9 +1,10 @@
-import * as THREE from 'three';
+import * as THREE from "three";
 
 export default class App {
   constructor(InitialScene) {
     this._initRender();
     this._setCamera();
+    this._resize();
 
     this._scene = null;
 
@@ -21,18 +22,18 @@ export default class App {
     this._camera.position.set(0, 1.5, 4);
   }
 
+  _resize() {
+    this._renderer.setSize(window.innerWidth, window.innerHeight);
+    this._camera.aspect = window.innerWidth / window.innerHeight;
+    this._camera.updateProjectionMatrix();
+  }
+
   _initRender() {
     this._renderer = new THREE.WebGLRenderer({ antialias: true });
     this._renderer.setSize(window.innerWidth, window.innerHeight);
     this._renderer.shadowMap.enabled = true;
     this._renderer.outputEncoding = THREE.sRGBEncoding;
     document.body.appendChild(this._renderer.domElement);
-  }
-
-   _resize() {
-    this._renderer.setSize(window.innerWidth, window.innerHeight);
-    this._camera.aspect = window.innerWidth / window.innerHeight;
-    this._camera.updateProjectionMatrix();
   }
 
   _initEvents() {
