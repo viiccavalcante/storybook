@@ -1,6 +1,6 @@
 import * as THREE from "three";
 import gsap from "gsap";
-import { createText } from "./Utils.js";
+import { createText } from "./utils.js";
 
 export default class FinalScene {
   constructor(renderer, camera) {
@@ -20,8 +20,8 @@ export default class FinalScene {
 
   async _setTexts() {
     const lines = [
-      "being",
-      "delusional.",
+      "But her main superpower was:",
+      "being delusional.",
       "Somehow she always thought she'd find time to do everything.",
     ];
 
@@ -41,7 +41,7 @@ export default class FinalScene {
     for (const line of lines) {
       tl.to({}, { duration: 0.5 });
 
-      if (line === "delusional.") {
+      if (line === "being delusional.") {
         tl.to(
           dynamicText.scale,
           {
@@ -93,7 +93,7 @@ export default class FinalScene {
         );
       }
 
-      if (line === "delusional.") {
+      if (line === "being delusional.") {
         tl.to(
           dynamicText.material.color,
           {
