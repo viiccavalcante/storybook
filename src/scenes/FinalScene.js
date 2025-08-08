@@ -6,8 +6,9 @@ export default class FinalScene {
   constructor(renderer, camera) {
     this._renderer = renderer;
     this._camera = camera;
+
     this._camera.position.set(0, 1.5, 4);
-    camera.rotation.x = 0; 
+    this._camera.rotation.x = -0.1;
 
     this._scene = new THREE.Scene();
     this._clock = new THREE.Clock();
@@ -23,9 +24,9 @@ export default class FinalScene {
 
   async _setTexts() {
     const lines = [
-      "But her main superpower was:",
+      "She genuinely believed she'd find time for everything.",
+      "As you can see, her main superpower was:",
       "being delusional.",
-      "Somehow she always thought she'd find time to do everything.",
     ];
 
     const initialScale = 10;
@@ -57,7 +58,7 @@ export default class FinalScene {
           ">"
         );
       } else if (
-        line === "Somehow she always thought she'd find time to do everything."
+        line === "She genuinely believed she'd find time for everything."
       ) {
         tl.to(
           dynamicText.scale,

@@ -39,8 +39,8 @@ export default class Icons extends Group {
   }
 
   _createIcons() {
-    const geometry = new PlaneGeometry(0.2, 0.2);
-    const count = 120;
+    const geometry = new PlaneGeometry(0.5, 0.5);
+    const count = 20;
 
     for (let i = 0; i < count; i++) {
       const texture = this.textures[Math.floor(Math.random() * this.textures.length)];

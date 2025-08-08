@@ -7,7 +7,7 @@ export default class SecondScene {
     this._renderer = renderer;
     this._camera = camera;
     this._camera.position.set(0, 0, 1);
-    camera.rotation.x = 0.1; 
+    this._camera.rotation.x = 0.1; 
 
     this._scene = new THREE.Scene();
     this._clock = new THREE.Clock();

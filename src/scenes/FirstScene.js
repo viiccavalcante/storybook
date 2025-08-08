@@ -39,7 +39,8 @@ export default class FirstScene {
     const lines = [
       "Once upon a time... there was Vivi",
       "Vivi had many ideas (like, a lot)",
-      "But she also wanted to do 185 tasks at the same time",
+      "She also wanted to do 185 things at once.",
+      "So her mind was like that:",
     ];
 
     this._textMeshes = lines.map((line, i) => {
