@@ -1,7 +1,7 @@
-# Interactive Storybook in WebGL
+# Storybook in WebGL
 
 This project is a simple storybook built using WebGL, where the scenes combines 3D models, animated text, transitions, and custom shaders. 
-The goal was to create a proper storybook with animation, but due to timming, I had to choose change for a basic approach.
+The goal was to create a proper storybook with animation, but due to timming, I had to change for a basic approach.
 
 ---
 
@@ -11,7 +11,7 @@ The goal was to create a proper storybook with animation, but due to timming, I 
 
 - 3D objects rendered with WebGL (via Three.js)
 - Animated text elements floating or fading in context
-- Custom shaders for effects (e.g., icons, stars, transitions)
+- Custom shaders for effects (e.g., icons)
 - Modular scene architecture (each scene is its own file)
 - Central logic in `App.js` controls flow, transitions, and state
 
@@ -33,6 +33,3 @@ The goal was to create a proper storybook with animation, but due to timming, I 
 - GLSL shaders (fragment + vertex)
 - Vite (for development/build)
 - JavaScript (ESModules)
-
----
-
