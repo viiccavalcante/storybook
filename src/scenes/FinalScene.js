@@ -6,6 +6,9 @@ export default class FinalScene {
   constructor(renderer, camera) {
     this._renderer = renderer;
     this._camera = camera;
+    this._camera.position.set(0, 1.5, 4);
+    camera.rotation.x = 0; 
+
     this._scene = new THREE.Scene();
     this._clock = new THREE.Clock();
     this._textMeshes = [];

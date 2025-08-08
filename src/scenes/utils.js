@@ -1,57 +1,43 @@
 import * as THREE from "three";
-import arrowImg from "../../public/assets/arrow.png";
 
-export function createFloatingText2D(message, options = {}) {
-  const {
-    font = "bold 80px Arial",
-    fillStyle = "#ffffff",
-    width = 1024,
-    height = 256,
-    scale = new THREE.Vector3(5, 1.25, 1),
-    position = new THREE.Vector3(0, 2, 0),
-  } = options;
-
+export function createText(message, position, width, height, color, scale = 1, font = "bold 80px 'Great Vibes', cursive") {
   const canvas = document.createElement("canvas");
   canvas.width = width;
   canvas.height = height;
 
   const context = canvas.getContext("2d");
-  context.font = font;
-  context.fillStyle = fillStyle;
-  context.textAlign = "center";
-  context.textBaseline = "middle";
-  context.clearRect(0, 0, width, height);
-  context.fillText(message, width / 2, height / 2);
+
+  function drawText(text) {
+    context.clearRect(0, 0, width, height);
+    context.font = font;
+    context.fillStyle = color;
+    context.textAlign = "center";
+    context.textBaseline = "middle";
+    context.fillText(text, width / 2, height / 2);
+  }
+
+  drawText(message);
 
   const texture = new THREE.CanvasTexture(canvas);
+  texture.minFilter = THREE.LinearFilter;
   const material = new THREE.SpriteMaterial({
     map: texture,
     transparent: true,
   });
   const sprite = new THREE.Sprite(material);
-  sprite.scale.copy(scale);
+  sprite.scale.set(scale, scale * (height / width), 1);
   sprite.position.copy(position);
 
-  return sprite;
-}
+  sprite.setText = (newText) => {
+    drawText(newText);
+    texture.needsUpdate = true;
+  };
 
-export function createArrow(position = new THREE.Vector3(0, -1.5, 0)) {
-  return new Promise((resolve, reject) => {
-    const loader = new THREE.TextureLoader();
-    loader.load(
-      arrowImg,
-      (texture) => {
-        const material = new THREE.MeshBasicMaterial({
-          map: texture,
-          transparent: true,
-        });
-        const geometry = new THREE.PlaneGeometry(1, 1);
-        const arrowMesh = new THREE.Mesh(geometry, material);
-        arrowMesh.position.copy(position);
-        resolve(arrowMesh);
-      },
-      undefined,
-      (err) => reject(err)
-    );
-  });
+  sprite.setColor = (newColor) => {
+    color = newColor;
+    drawText(message); 
+    texture.needsUpdate = true;
+  };
+
+  return sprite;
 }
